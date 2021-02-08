@@ -104,3 +104,39 @@ or height = (select max(height) from userTbl);
 
 select count(*) as '회원수' from userTbl;
 select count(*) as '구매내역수' from buyTbl;
+
+
+-- 잘못된 필터링
+select userID, sum(price * amount) as 'ID별 구매금액'
+from buyTbl
+-- where sum(price * amount) > 1000
+group by userid
+having sum(price * amount) > 1000
+order by sum(price * amount) desc;
+
+-- rollup / cube
+select num, groupname, sum(price * amount) as '구매금액',
+		GROUPING_ID(groupName, num)
+from buyTbl
+group by  rollup(groupName, num);
+
+-- userID, groupName 가지고 cube 다차원 합계
+select userID, groupname, sum(price * amount) as '구매금액'
+	--	GROUPING_ID(groupName, userID)
+from buyTbl
+group by  cube(groupName, userID);
+
+-- without CTE
+select userid, sum(price * amount) as 'total'
+from buyTbl
+group by userID
+order by sum(price * amount) desc;
+
+-- with CTE
+with cte_tmp(userid, total)
+as
+(   select userid, sum(price * amount) as 'total'
+	from buyTbl
+	group by userID )
+select * from cte_tmp order by userid desc;
+
