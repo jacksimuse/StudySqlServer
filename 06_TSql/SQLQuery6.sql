@@ -1,11 +1,11 @@
 use sqlDB;
 go
 
--- ÀÌ¸§ÀÌ ±è°æÈ£ÀÎ »ç¶÷ Á¶È¸
+--ì´ë¦„ì´ ê¹€ê²½í˜¸ì¸ ì‚¬ëŒ ì¡°íšŒ
 select * from userTbl
- where userName = '±è°æÈ£';
+ where userName = 'ê¹€ê²½í˜¸';
 
- -- 1970³â ÀÌÈÄ Ãâ»ı, Å°°¡ 182 ÀÌ»óÀÎ »ç¶÷¸¸ Á¶È¸ ID, ÀÌ¸§¸¸ Á¶È¸
+ --1970ë…„ ì´í›„ ì¶œìƒì´ê³  í‚¤ 182 ì´ìƒì¸ ì‚¬ëŒ ì•„ì´ë””, ì´ë¦„ë§Œ ì¡°íšŒ
  select userID, userName, height
   from userTbl
   where birthYear >= 1970 
@@ -16,24 +16,24 @@ select * from userTbl
   where birthYear >= 1970 
   or height >= 182;
 
-  -- Å°°¡ 180~183ÀÎ »ç¶÷ Á¶È¸
+  -- 1970ë…„ ì´í›„ ì¶œìƒì´ê±°ë‚˜ í‚¤ê°€ 182ì´ìƒì´ê±°ë‚˜ ì¸ ì‚¬ëŒë“¤ ëª¨ë‘
  select userID, userName, height
   from userTbl
   where height between 180 and 183;
  
- -- Áö¿ª °æ³² Àü³² °æºÏ
+ -- ì§€ì—­ì´ ê²½ë‚¨, ì „ë‚¨, ê²½ë¶
  select userID, userName, addr
   from userTbl
-  where addr in ('°æ³²', 'Àü³²', '°æºÏ');
+  where addr in ('ê²½ë‚¨', 'ì „ë‚¨', 'ê²½ë¶');
 
   --like
   select userID, userName, height
   from userTbl
-  where userName like'±è%';
+  where userName like'ê¹€%';
 
   select userID, userName, height
   from userTbl
-  where userName like '_Á¾½Å';
+  where userName like '_ì¢…ì‹ ';
 
   -- SUBQUERY 
   select userName, height 
@@ -44,18 +44,18 @@ select * from userTbl
   from userTbl
   where height >
   (
-	select height from userTbl where userName = '±è%'
+	select height from userTbl where userName = 'ê¹€ê²½í˜¸'
 	);
 
 	select userName, height
   from userTbl
   where height in
-  (	select height from userTbl where addr = '°æ³²'); -- 170, 173
+  (	select height from userTbl where addr = 'ê²½ë‚¨'); -- 170, 173
   
-  -- order by Á¤·Ä
+  -- order by ì •ë ¬
   select userName, mDate
   from userTBl 
-  order by mDate asc; --asc(¿À¸§Â÷¼ø) desc(³»¸²Â÷¼ø)
+  order by mDate asc; --asc(ì˜¤ë¦„ì°¨ìˆœ), desc(ë‚´ë¦¼ì°¨ìˆœ)
 
   select *
   from userTbl
@@ -74,7 +74,7 @@ select * from userTbl
   order by birthYear 
   offset 4 rows;
 
-  -- º¹»ç
+  -- ë³µì‚¬
   select * into buyTbl2 from buyTbl;
   select userID, prodName into buyTbl3 from buyTbl;
 
@@ -85,12 +85,12 @@ select userid, amount
 from buyTbl
 order by userid;
 
-select userid, sum(amount) as 'ÇÕ°è'
+select userid, sum(amount) as 'í•©ê³„'
 from buyTbl
 group by userid;
 
 -- min, max
-select userid, username, min(height) as 'ÃÖ¼ÒÅ°', max(height) as 'ÃÖ¼ÒÅ°'
+select userid, username, min(height) as 'ï¿½ìµœì†Œí‚¤', max(height) as 'ìµœëŒ€í‚¤'
 from userTbl
 group by userID, username;
 
@@ -100,14 +100,14 @@ where height = (select min(height) from userTbl)
 or height = (select max(height) from userTbl);
 
 
---ÃÑ µ¥ÀÌÅÍ °³¼ö
+--ì´ ë°ì´í„°ì˜ ê°œìˆ˜
 
-select count(*) as 'È¸¿ø¼ö' from userTbl;
-select count(*) as '±¸¸Å³»¿ª¼ö' from buyTbl;
+select count(*) as 'íšŒì›ìˆ˜' from userTbl;
+select count(*) as 'êµ¬ë§¤ë‚´ì—­ìˆ˜' from buyTbl;
 
 
--- Àß¸øµÈ ÇÊÅÍ¸µ
-select userID, sum(price * amount) as 'IDº° ±¸¸Å±İ¾×'
+-- ì˜ëª»ëœ í•„í„°ë§
+select userID, sum(price * amount) as 'IDë³„ êµ¬ë§¤ê¸ˆì•¡'
 from buyTbl
 -- where sum(price * amount) > 1000
 group by userid
@@ -115,13 +115,13 @@ having sum(price * amount) > 1000
 order by sum(price * amount) desc;
 
 -- rollup / cube
-select num, groupname, sum(price * amount) as '±¸¸Å±İ¾×',
+select num, groupname, sum(price * amount) as 'êµ¬ë§¤ê¸ˆì•¡',
 		GROUPING_ID(groupName, num)
 from buyTbl
 group by  rollup(groupName, num);
 
--- userID, groupName °¡Áö°í cube ´ÙÂ÷¿ø ÇÕ°è
-select userID, groupname, sum(price * amount) as '±¸¸Å±İ¾×'
+--userID, groupName ê°€ì§€ê³  cube ë‹¤ì°¨ì› í•©ê³„
+select userID, groupname, sum(price * amount) as 'êµ¬ë§¤ê¸ˆì•¡'
 	--	GROUPING_ID(groupName, userID)
 from buyTbl
 group by  cube(groupName, userID);

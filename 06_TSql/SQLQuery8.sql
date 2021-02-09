@@ -2,21 +2,21 @@
 use sqlDB;
 go
 
--- DBL Áß SELECT
+-- DBL ì¤‘ SELECT
 select * from testTBL1;
 
--- DML Áß INSERT
-insert into testTBL1 values (1, 'È«±æµ¿', 25);
-insert into testTBL1 (id, userName) values (2, 'ÃÖÀçÈÆ');
-insert into testTBL1 values (3, 'È«±æ¼ø', 26);
+-- DML ì¤‘ INSERT
+insert into testTBL1 values (1, 'È«ï¿½æµ¿', 25);
+insert into testTBL1 (id, userName) values (2, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
+insert into testTBL1 values (3, 'È«ï¿½ï¿½ï¿½', 26);
 insert into testTBL1 (age, ID) values (30, 4);
-insert into testTBL1 (userName, age) values ('¼³Çö', 23);
+insert into testTBL1 (userName, age) values ('ï¿½ï¿½ï¿½ï¿½', 23);
 
-insert into testTBL1 values ('¼º½Ã°æ', 30);
+insert into testTBL1 values ('ï¿½ï¿½ï¿½Ã°ï¿½', 30);
 
 exec sp_help 'testTBL1';
 
--- ÇöÀç °¡Àå ÃÖ½Å identity °ª
+-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ identity ï¿½ï¿½
 select IDENT_CURRENT('testTBL1');
 
 select @@IDENTITY;
@@ -25,7 +25,7 @@ select * from BikeStores.sales.order_items;
 
 select * from ShopDB.dbo.memberTbl;
 
--- sale.order_items Å×ÀÌºí º¹»ç
+-- sale.order_items ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½
 CREATE TABLE [sales_order_items](
 	[order_id] [int] NOT NULL,
 	[item_id] [int] NOT NULL,
@@ -44,7 +44,7 @@ select * from sales_order_items;
 select * from testTBL1;
 
 update testTBL1
-	set userName = '¼º¼ö°æ',
+	set userName = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
 		age = 30
 where id = 6;
 

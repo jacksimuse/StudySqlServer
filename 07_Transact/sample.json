@@ -1,0 +1,94 @@
+[
+    {
+        "userName": "바비킴",
+        "height": 176
+    },
+    {
+        "userName": "은지원",
+        "height": 174
+    },
+    {
+        "userName": "조관우",
+        "height": 172
+    },
+    {
+        "userName": "조용필",
+        "height": 166
+    },
+    {
+        "userName": "김범수",
+        "height": 173
+    },
+    {
+        "userName": "김경호",
+        "height": 177
+    },
+    {
+        "userName": "임재범",
+        "height": 182
+    },
+    {
+        "userName": "이승기",
+        "height": 182
+    },
+    {
+        "userName": "성시경",
+        "height": 186
+    },
+    {
+        "userName": "윤종신",
+        "height": 170
+    }
+]
+[
+    {
+        "userID": "BBK     ",
+        "userName": "바비킴",
+        "height": 176
+    },
+    {
+        "userID": "EJW     ",
+        "userName": "은지원",
+        "height": 174
+    },
+    {
+        "userID": "JKW     ",
+        "userName": "조관우",
+        "height": 172
+    },
+    {
+        "userID": "JYP     ",
+        "userName": "조용필",
+        "height": 166
+    },
+    {
+        "userID": "KBS     ",
+        "userName": "김범수",
+        "height": 173
+    },
+    {
+        "userID": "KKH     ",
+        "userName": "김경호",
+        "height": 177
+    },
+    {
+        "userID": "LJB     ",
+        "userName": "임재범",
+        "height": 182
+    },
+    {
+        "userID": "LSG     ",
+        "userName": "이승기",
+        "height": 182
+    },
+    {
+        "userID": "SSK     ",
+        "userName": "성시경",
+        "height": 186
+    },
+    {
+        "userID": "YJS     ",
+        "userName": "윤종신",
+        "height": 170
+    }
+]
