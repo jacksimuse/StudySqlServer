@@ -1,0 +1,29 @@
+<u userid="KBS     " username="김범수" birthyear="1979" addr="경남" height="173">
+  <b prodName="운동화   " price="30" />
+</u>
+<u userid="SMG     " username="성명건" birthyear="1976" addr="부산" height="179">
+  <b prodName="테슬라   " price="5000" />
+</u>
+<u userid="KGH     " username="김경호" birthyear="1971" addr="전남" height="177">
+  <b prodName="기타    " price="4000" />
+</u>
+<u userid="KBS     " username="김범수" birthyear="1979" addr="경남" height="173">
+  <b prodName="청바지   " price="50" />
+</u>
+<u userid="KGH     " username="김경호" birthyear="1971" addr="전남" height="177">
+  <b prodName="기타    " price="4000" />
+  <b prodName="기타    " price="4000" />
+  <b prodName="기타    " price="4000" />
+</u>
+<u userid="HKD     " username="홍길동" birthyear="1988" addr="한양" height="174">
+  <b prodName="노트북   " price="8000" />
+</u>
+<u userid="GJY     " username="권지용" birthyear="1988" addr="서울" height="175">
+  <b prodName="선글라스  " price="80000000" />
+</u>
+<u userid="SSK     " username="성시경" birthyear="1979" addr="서울" height="186">
+  <b prodName="책     " price="15" />
+</u>
+<u userid="BBK     " username="바비킴" birthyear="1973" addr="서울" height="176">
+  <b prodName="운동화   " price="30" />
+</u>
