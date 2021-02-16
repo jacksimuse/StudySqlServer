@@ -20,3 +20,7 @@ declare @myVar5 tinyint;
 set @myVar5 = 3
 
 select top(@myVar5) userName, height from userTbl order by height desc;
+
+
+
+			
