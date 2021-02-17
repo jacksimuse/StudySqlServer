@@ -2,13 +2,13 @@ create or alter function ufn_getState(@rentalState char(1))
 returns nvarchar(5)
 as
 begin
-	declare @result nvarchar(5) -- ´ë¿©Áß, ¹Ý³³, ¿¬Ã¼Áß, ºÐ½Ç
+	declare @result nvarchar(5) -- ëŒ€ì—¬ì¤‘, ë°˜ë‚©, ì—°ì²´ì¤‘, ë¶„ì‹¤
 	set @result = case @rentalState
-					when '1' then '´ë¿©Áß'
-					when '2' then '¹Ý³³'
-					when '3' then '¿¬Ã¼Áß'
-					when '4' then 'ºÐ½Ç'
-					else '¹ÌÁ¤'
+					when '1' then 'ëŒ€ì—¬ì¤‘'
+					when '2' then 'ë°˜ë‚©'
+					when '3' then 'ì—°ì²´ì¤‘'
+					when '4' then 'ë¶„ì‹¤'
+					else 'ë¯¸ì •'
 				  end
 	return @result
 end

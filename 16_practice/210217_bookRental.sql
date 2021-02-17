@@ -1,30 +1,30 @@
--- ½ÇÁ¦ È¸¿øÁ¤º¸ ºÒ·¯¿À±â ·¹º§ ¿ª¼ø + ÀÌ¸§¼ø
+-- ì‹¤ì œ íšŒì›ì •ë³´ ë¶ˆëŸ¬ì˜¤ê¸° ë ˆë²¨ ì—­ìˆœ + ì´ë¦„ìˆœ
 select memberID, memberName, levels, mobile, email
   from memberTBL
  where levels <> 's'
  order by levels desc, memberName asc
 
 
- -- Ã¥Á¤º¸
+-- ì±…ì •ë³´
  select cateidx, bookName, author, interpreter, company, price
    from booksTBL
   order by price desc
 
 select * from cateTBL
 
--- ½Ã½ºÅÛ ÇÔ¼ö »ç¿ë Äõ¸®
+-- ì‹œìŠ¤í…œ í•¨ìˆ˜ ì‚¬ìš© ì¿¼ë¦¬
 select memberID, 
-	   concat(right(memberName, 2),',', left(memberName, 1)) ¹Ì±¹½ÄÀÌ¸§,
+	   concat(right(memberName, 2),',', left(memberName, 1)) ë¯¸êµ­ì‹ì´ë¦„,
 	   case levels
-			when 'A' then '°ñµå'
-			when 'B' then '½Ç¹ö'
-			when 'C' then 'ºê·ĞÁî'
-			when 'D' then 'Ã¶È¸¿ø'
-			when 'S' then '°ü¸®ÀÚ'
-			else 'ºñÈ¸¿ø'
-	   end È¸¿ø·¹º§,
+			when 'A' then 'ê³¨ë“œ'
+			when 'B' then 'ì‹¤ë²„'
+			when 'C' then 'ë¸Œë¡ ì¦ˆ'
+			when 'D' then 'ì² íšŒì›'
+			when 'S' then 'ê´€ë¦¬ì'
+			else 'ë¹„íšŒì›'
+	   end íšŒì›ë ˆë²¨,
 	   mobile,
-	   upper(email) ÀÌ¸ŞÀÏ
+	   upper(email) ì´ë©”ì¼
   from memberTBL
  where levels <> 's'
  order by levels, memberName

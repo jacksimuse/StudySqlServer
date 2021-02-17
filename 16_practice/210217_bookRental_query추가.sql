@@ -1,11 +1,11 @@
--- ½ÇÁ¦ È¸¿øÁ¤º¸ ºÒ·¯¿À±â ·¹º§ ¿ª¼ø + ÀÌ¸§¼ø
+-- ì‹¤ì œ íšŒì›ì •ë³´ ë¶ˆëŸ¬ì˜¤ê¸° ë ˆë²¨ ì—­ìˆœ + ì´ë¦„ìˆœ
 select memberID, memberName, levels, mobile, email
   from memberTBL
  where levels <> 's'
  order by levels desc, memberName asc
 
 
- -- Ã¥Á¤º¸, ½Ã½ºÅÛ ÇÔ¼ö, Æ÷¸Ë ÇÔ¼ö Äõ¸®
+ -- ì±…ì •ë³´, ì‹œìŠ¤í…œ í•¨ìˆ˜, í¬ë§· í•¨ìˆ˜ ì¿¼ë¦¬
  SELECT  b.bookidx
      -- , b.cateidx
       , b.bookName
@@ -16,41 +16,41 @@ select memberID, memberName, levels, mobile, email
  inner join cateTBL c
     on b.cateidx = c.cateidx
 
--- ´ë¿©µÈ Ã¥ÀÇ Á¤º¸ Äõ¸® Á¶ÀÎ
+-- ëŒ€ì—¬ëœ ì±…ì˜ ì •ë³´ ì¿¼ë¦¬ ì¡°ì¸
 SELECT r.rentalidx
       --,r.memberidx
       --,r.bookidx
 	  ,m.memberName
 	  ,b.bookName
 	  ,b.author
-	  ,format(r.rentalDt, 'yyyy-MM-dd') ´ë¿©ÀÏ
-	  ,format(r.returnDt, 'yyyy-MM-dd') ¹İ³³ÀÏ
-	  ,dbo.ufn_getState(r.rentalState) ´ë¿©»óÅÂ
+	  ,format(r.rentalDt, 'yyyy-MM-dd') ëŒ€ì—¬ì¼
+	  ,format(r.returnDt, 'yyyy-MM-dd') ë°˜ë‚©ì¼
+	  ,dbo.ufn_getState(r.rentalState) ëŒ€ì—¬ìƒíƒœ
   FROM dbo.rentalTBL r
  inner join booksTBL b
     on r.bookidx = b.bookidx
  inner join memberTBL m
     on r.memberidx = m.memberidx
 
--- ½Ã½ºÅÛ Á¤ÀÇ ÇÔ¼ö»ç¿ë Äõ¸®
+-- ì‹œìŠ¤í…œ ì •ì˜ í•¨ìˆ˜ì‚¬ìš© ì¿¼ë¦¬
 select memberID, 
-      concat(right(memberName, 2),',', left(memberName, 1)) ¹Ì±¹½ÄÀÌ¸§,
-      dbo.ufn_getLevel(levels) È¸¿ø·¹º§,
+      concat(right(memberName, 2),',', left(memberName, 1)) ë¯¸êµ­ì‹ì´ë¦„,
+      dbo.ufn_getLevel(levels) íšŒì›ë ˆë²¨,
       mobile,
-      upper(email) ÀÌ¸ŞÀÏ
+      upper(email) ì´ë©”ì¼
   from memberTBL
  where levels <> 's'
  order by levels, memberName
 
---Ã¥À» ¾Èºô¸° È¸¿ø Á¶È¸
+--ì±…ì„ ì•ˆë¹Œë¦° íšŒì› ì¡°íšŒ
 SELECT r.rentalidx
       --,r.memberidx
       --,r.bookidx
 	  ,m.memberName
 	  ,b.bookName
 	  ,b.author
-	  ,format(r.rentalDt, 'yyyy-MM-dd') ´ë¿©ÀÏ
-	  ,dbo.ufn_getState(r.rentalState) ´ë¿©»óÅÂ
+	  ,format(r.rentalDt, 'yyyy-MM-dd') ëŒ€ì—¬ì¼
+	  ,dbo.ufn_getState(r.rentalState) ëŒ€ì—¬ìƒíƒœ
   FROM dbo.rentalTBL r
  left outer join booksTBL b
     on r.bookidx = b.bookidx
@@ -59,7 +59,7 @@ SELECT r.rentalidx
  where r.rentalidx is null
  order by memberName
 
- -- ¿ì¸® Ã¥´ë¿©Á¡¿¡ ¾ø´Â ¼Ò¼³Àå¸£
+ -- ìš°ë¦¬ ì±…ëŒ€ì—¬ì ì— ì—†ëŠ” ì†Œì„¤ì¥ë¥´
  select c.cateidx
 	   ,c.cateName
 	   ,b.bookName
