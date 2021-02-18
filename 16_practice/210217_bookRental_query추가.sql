@@ -66,3 +66,9 @@ SELECT r.rentalidx
   from cateTBL c
   left outer join booksTBL b
     on c.cateidx = b.cateidx
+
+
+
+insert into cateTBL values ('I0001', '대화/협상')
+('I0002', '성공/처세')
+('I0003', '시간관리')
